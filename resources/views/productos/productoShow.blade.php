@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle producto</title>
-</head>
-<body>
+<x-mi-layout>
     <a href="{{ route('producto.index') }}">Regresar</a>
-    <h1>Detalle del producto</h1>
+    <h1 class="h3 mb-4 text-gray-800" >Detalle del producto</h1>
     
     <ul>
         <li>Nombre del producto: {{ $producto -> nombre_producto }}</li>
@@ -17,5 +10,5 @@
         <li>Categoria: {{ $producto -> categoria }}</li>
         <li>Deporte: {{ $producto -> deporte }}</li>
     </ul>
-</body>
-</html>
+
+</x-mi-layout>

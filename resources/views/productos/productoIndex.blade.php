@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Productos</title>
-</head>
-<body>
+<x-mi-layout>
     <a href="{{ route('producto.create') }}">Nuevo Producto</a>
-    <h1>Lista de productos</h1>
+    <h1 class="h3 mb-4 text-gray-800" >Lista de productos</h1>
     <table border=1>
         <thead>
             <tr>
@@ -37,12 +30,11 @@
                     <form action="{{ route('producto.destroy', $producto)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <input type="submit" value="Eliminar">
+                        <input class="btn-danger" type="submit" value="Eliminar">
                     </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+</x-mi-layout>

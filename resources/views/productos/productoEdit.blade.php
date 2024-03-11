@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
-    <title>Editar Producto</title>
-</head>
-<body>
 
+<x-mi-layout>
 <!-- Fromulario de edicion de comentario -->
     <a href="{{ route('producto.index') }}">Lista de Producto</a>
     <hr>
-    <h1>Editar Producto</h1>
+    <h1 class="h3 mb-4 text-gray-800" >Editar Producto</h1>
 
     @include('parciales.form-error')
 
@@ -82,10 +74,10 @@
           <br>
 
       
-          <button type="submit" class="registerbtn">Registrar</button>
+          <button type="submit" class="btn-primary">Registrar</button>
         </div>
     </form>
     <br><br>
 
-</body>
-</html>
+
+</x-mi-layout>
