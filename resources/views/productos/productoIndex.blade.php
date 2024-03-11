@@ -1,10 +1,13 @@
 <x-mi-layout>
-    <a href="{{ route('producto.create') }}">Nuevo Producto</a>
+    <a class="btn btn-primary" href="{{ route('producto.create') }}">Nuevo Producto</a>
+    <hr>
     <h1 class="h3 mb-4 text-gray-800" >Lista de productos</h1>
     <table border=1>
         <thead>
             <tr>
-                <th>Nombre</th>
+                <th>Usuario</th>
+                <th>Correo</th>
+                <th>Nombre_P</th>
                 <th>Marca</th>
                 <th>Descripción</th>
                 <th>Precio</th>
@@ -17,6 +20,8 @@
         <tbody>
             @foreach ($productos as $producto)
             <tr>
+                <td>{{ $producto -> user -> name}}</td>
+                <td>{{ $producto -> user -> email}}</td>
                 <td>{{ $producto -> nombre_producto}}</td>
                 <td>{{ $producto -> marca}}</td>
                 <td>{{ $producto -> descripcion}}</td>
@@ -30,11 +35,13 @@
                     <form action="{{ route('producto.destroy', $producto)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <input class="btn-danger" type="submit" value="Eliminar">
+                        <input class="btn btn-danger" type="submit" value="Eliminar">
                     </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+
+    
 </x-mi-layout>

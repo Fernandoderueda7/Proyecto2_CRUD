@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductoController extends Controller
 {
@@ -48,8 +49,9 @@ class ProductoController extends Controller
 
         ]);
     
-        //Guardar
+        // //Guardar
         $producto = new Producto();
+        $producto -> user_id = Auth::id();
         $producto -> nombre_producto = $request -> nombre_producto;
         $producto -> marca = $request -> marca;
         $producto -> descripcion = $request -> descripcion;

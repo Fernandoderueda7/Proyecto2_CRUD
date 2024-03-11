@@ -1,5 +1,6 @@
 <x-mi-layout>
-    <a href="{{ route('producto.index') }}">Regresar</a>
+    <a class="btn btn-primary" href="{{ route('producto.index') }}">Regresar</a>
+    <hr>
     <h1 class="h3 mb-4 text-gray-800" >Detalle del producto</h1>
     
     <ul>
