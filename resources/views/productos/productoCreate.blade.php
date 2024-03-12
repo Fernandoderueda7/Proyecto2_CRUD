@@ -8,7 +8,6 @@
         @csrf
         <div class="container">
           <hr>
-          <hr>
           <label for="nombre_producto"><b>Nombre</b></label>
           <input type="text" placeholder="Ingrese el nombre del producto" name="nombre_producto" value=" {{ old('nombre_producto')}}">
           @error('nombre_producto')
