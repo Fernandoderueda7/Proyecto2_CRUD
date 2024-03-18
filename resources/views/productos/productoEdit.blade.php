@@ -1,7 +1,7 @@
 
 <x-mi-layout>
 <!-- Fromulario de edicion de comentario -->
-    <a class="btn btn-primary" href="{{ route('producto.index') }}">Lista de Producto</a>
+    <a class="btn btn-info" href="{{ route('producto.index') }}">Lista de Producto</a>
     <hr>
     <h1 class="h3 mb-4 text-gray-800" >Editar Producto</h1>
 
@@ -74,7 +74,7 @@
           <br>
 
       
-          <button type="submit" class="btn-primary">Registrar</button>
+          <button type="submit" class="btn btn-success">Registrar</button>
         </div>
     </form>
     <br><br>
