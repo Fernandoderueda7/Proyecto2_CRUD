@@ -32,7 +32,7 @@
       
           <label><b>Descripción</b></label>
           <br>
-          <textarea placeholder="Descripción del producto"  name="descripcion" cols="40" rows="5" value=" {{ old('descripcion')}}" ></textarea>
+          <textarea placeholder="Descripción del producto"  name="descripcion" cols="40" rows="5" >{{ old('descripcion')}}</textarea>
           @error('descripcion')
               <div class="alert alert-danger">{{ $message }}</div>
           @enderror
