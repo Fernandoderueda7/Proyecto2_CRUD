@@ -10,6 +10,8 @@
         <li>Precio: {{ $producto -> precio }}</li>
         <li>Categoria: {{ $producto -> categoria }}</li>
         <li>Deporte: {{ $producto -> deporte }}</li>
+        <li>Estado: {{ $producto -> estado }}</li>
+        <li>Tienda: {{ $producto -> tienda }}</li>
     </ul>
 
 </x-mi-layout>

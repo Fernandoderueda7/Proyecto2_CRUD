@@ -20,6 +20,8 @@ return new class extends Migration
             $table->float('precio', $precision = 8, $scale = 2);
             $table->string('categoria');
             $table->string('deporte');
+            $table->string('estado');
+            $table->string('tienda');
             $table->timestamps();
         });
     }

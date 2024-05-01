@@ -20,6 +20,8 @@
                             <th>Precio</th>
                             <th>Categoria</th>
                             <th>Deporte</th>
+                            <th>Estado</th>
+                            <th>Tienda</th>
                             <th>Creado</th>
                             <th>Acciones</th>
                         </tr>
@@ -34,6 +36,8 @@
                             <th>Precio</th>
                             <th>Categoria</th>
                             <th>Deporte</th>
+                            <th>Estado</th>
+                            <th>Tienda</th>
                             <th>Creado</th>
                             <th>Acciones</th>
                         </tr>
@@ -49,6 +53,8 @@
                                 <td>{{ $producto -> precio}}</td>
                                 <td>{{ $producto -> categoria}}</td>
                                 <td>{{ $producto -> deporte}}</td>
+                                <td>{{ $producto -> estado}}</td>
+                                <td>{{ $producto -> tienda}}</td>
                                 <td>{{ $producto -> created_at}}</td>
                                 <td>
                                     <a href="{{ route('producto.show', $producto) }}">Detalle</a>

@@ -45,6 +45,8 @@ class ProductoController extends Controller
             'precio' => ['required', 'decimal:0, 2' ],
             'categoria' => 'required',
             'deporte' => 'required',
+            'estado' => 'required',
+            'tienda' => 'required',
 
 
         ]);
@@ -58,6 +60,8 @@ class ProductoController extends Controller
         $producto -> precio = $request -> precio;
         $producto -> categoria = $request -> categoria;
         $producto -> deporte = $request -> deporte;
+        $producto -> estado = $request -> estado;
+        $producto -> tienda = $request -> tienda;
         $producto -> save();
     
         //Redireccionar
@@ -96,6 +100,8 @@ class ProductoController extends Controller
             'precio' => ['required', 'decimal:0, 2' ],
             'categoria' => 'required',
             'deporte' => 'required',
+            'estado' => 'required',
+            'tienda' => 'required',
 
 
         ]);
@@ -106,6 +112,8 @@ class ProductoController extends Controller
         $producto -> precio = $request -> precio;
         $producto -> categoria = $request -> categoria;
         $producto -> deporte = $request -> deporte;
+        $producto -> estado = $request -> estado;
+        $producto -> tienda = $request -> tienda;
         $producto -> save();
     
         //Redireccionar
