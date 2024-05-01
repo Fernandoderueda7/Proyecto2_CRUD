@@ -59,7 +59,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
     
-    public function comentarios()
+    public function productos()
     {
         return $this -> hasMany(Producto::class);
     }

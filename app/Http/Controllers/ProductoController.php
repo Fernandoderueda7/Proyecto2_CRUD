@@ -19,6 +19,9 @@ class ProductoController extends Controller
     {
         //
         $productos = Producto::all();
+        // $productos = Auth::user()->productos;
+
+
         return view('productos/productoIndex', compact('productos'));
     }
 
@@ -51,18 +54,20 @@ class ProductoController extends Controller
 
         ]);
     
-        // //Guardar
-        $producto = new Producto();
-        $producto -> user_id = Auth::id();
-        $producto -> nombre_producto = $request -> nombre_producto;
-        $producto -> marca = $request -> marca;
-        $producto -> descripcion = $request -> descripcion;
-        $producto -> precio = $request -> precio;
-        $producto -> categoria = $request -> categoria;
-        $producto -> deporte = $request -> deporte;
-        $producto -> estado = $request -> estado;
-        $producto -> tienda = $request -> tienda;
-        $producto -> save();
+        //Guardar
+        // $producto = new Producto();
+        // $producto -> user_id = Auth::id();
+        // $producto -> nombre_producto = $request -> nombre_producto;
+        // $producto -> marca = $request -> marca;
+        // $producto -> descripcion = $request -> descripcion;
+        // $producto -> precio = $request -> precio;
+        // $producto -> categoria = $request -> categoria;
+        // $producto -> deporte = $request -> deporte;
+        // $producto -> estado = $request -> estado;
+        // $producto -> tienda = $request -> tienda;
+        // $producto -> save();
+        $request->merge(['user_id' => Auth::id()]);
+        Producto::create($request->all());
     
         //Redireccionar
         return redirect()->route('producto.index');
@@ -106,15 +111,17 @@ class ProductoController extends Controller
 
         ]);
     
-        $producto -> nombre_producto = $request -> nombre_producto;
-        $producto -> marca = $request -> marca;
-        $producto -> descripcion = $request -> descripcion;
-        $producto -> precio = $request -> precio;
-        $producto -> categoria = $request -> categoria;
-        $producto -> deporte = $request -> deporte;
-        $producto -> estado = $request -> estado;
-        $producto -> tienda = $request -> tienda;
-        $producto -> save();
+        // $producto -> nombre_producto = $request -> nombre_producto;
+        // $producto -> marca = $request -> marca;
+        // $producto -> descripcion = $request -> descripcion;
+        // $producto -> precio = $request -> precio;
+        // $producto -> categoria = $request -> categoria;
+        // $producto -> deporte = $request -> deporte;
+        // $producto -> estado = $request -> estado;
+        // $producto -> tienda = $request -> tienda;
+        // $producto -> save();
+
+        $producto->update($request->all());
     
         //Redireccionar
         return redirect()->route('producto.show', $producto);
