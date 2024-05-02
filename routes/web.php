@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Http\Request;
 use App\Models\Producto;
@@ -22,6 +23,11 @@ Route::get('/', function () {
 });
 
 Route::resource('producto', ProductoController::class);
+
+Route::resource('empleado', EmpleadoController::class);
+Route::get('/empleado/{empleado}/asignar-tienda', [EmpleadoController::class, 'asignarTienda'])->name('empleado.asignar-tienda');
+Route::post('/empleado/{empleado}/asignar-tienda-empleado', [EmpleadoController::class,
+ 'relacionarTiendaConEmpleado'])->name('empleado.asignar-tienda-empleado');
 
 Route::middleware([
     'auth:sanctum',

@@ -74,6 +74,7 @@
                             @auth
                             <h6 class="collapse-header">Otras Paginas:</h6>
                             <a class="collapse-item" href="{{ route('producto.create') }}">Registrar Productos</a>
+                            <a class="collapse-item" href="{{ route('empleado.index') }}">Lista De Empleados</a>
                             @else
                                 <a class="collapse-item" href="{{ route('login') }}">Iniciar Sesión</a>
                                 @if (Route::has('register'))
