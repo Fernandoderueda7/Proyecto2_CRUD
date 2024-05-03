@@ -10,8 +10,9 @@
                 <td>{{ $empleado->nombre }}</td>
                 <td>{{ $empleado->correo }}</td>
                 <td>
-                   <a href="{{ route('empleado.asignar-tienda', $empleado) }}">Asignar Tienda &nbsp;</a>
-                   
+                    @can('asignarTienda', $empleado)
+                        <a href="{{ route('empleado.asignar-tienda', $empleado) }}">Asignar Tienda &nbsp;</a>
+                    @endcan
                    <a href="{{ route('empleado.show', $empleado) }}">&nbsp Detalle</a>
                 </td>
             </tr>

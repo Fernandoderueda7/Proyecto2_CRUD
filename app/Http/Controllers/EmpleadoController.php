@@ -74,6 +74,8 @@ class EmpleadoController extends Controller
 
     public function asignarTienda(Empleado $empleado)
     {
+        $this->authorize('asignarTienda', $empleado);
+        
         return view('empleados.asignar-tienda', compact('empleado'))
             ->with('tiendas', Tienda::all());
     }

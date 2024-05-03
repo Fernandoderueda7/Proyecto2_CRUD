@@ -88,6 +88,8 @@ class ProductoController extends Controller
     public function edit(Producto $producto)
     {
         //
+        $this->authorize('update', $producto);
+
         return view('productos.productoEdit', compact('producto'));
     }
 
@@ -97,6 +99,7 @@ class ProductoController extends Controller
     public function update(Request $request, Producto $producto)
     {
         //
+        $this->authorize('update', $producto);
          //Validacion
          $request -> validate([
             'nombre_producto' => 'required|max:255',
@@ -134,6 +137,8 @@ class ProductoController extends Controller
     public function destroy(Producto $producto)
     {
         //
+        $this->authorize('delete', $producto);
+        
         $producto -> delete();
         return redirect() -> route('producto.index');
     }

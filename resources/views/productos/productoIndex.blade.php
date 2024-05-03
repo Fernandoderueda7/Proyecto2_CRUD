@@ -58,12 +58,19 @@
                                 <td>{{ $producto -> created_at}}</td>
                                 <td>
                                     <a href="{{ route('producto.show', $producto) }}">Detalle</a>
-                                    <a href="{{ route('producto.edit', $producto) }}">Editar</a>
-                                    <form action="{{ route('producto.destroy', $producto)}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <input class="btn btn-danger" type="submit" value="Eliminar">
-                                    </form>
+                                    
+                                    @can('update', $producto)
+                                        <a href="{{ route('producto.edit', $producto) }}">Editar</a>
+                                    @endcan
+
+                                    @can('delete', $producto)
+                                        <form action="{{ route('producto.destroy', $producto)}}" method="POST">
+                                        
+                                            @csrf
+                                            @method('DELETE')
+                                            <input class="btn btn-danger" type="submit" value="Eliminar">
+                                        </form>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach
