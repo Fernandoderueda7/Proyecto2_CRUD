@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotificaTiendas;
 use App\Models\Empleado;
 use App\Models\Tienda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 
 class EmpleadoController extends Controller
 {
@@ -87,6 +90,9 @@ class EmpleadoController extends Controller
         $empleado_id = $empleado->id;
 
         $empleado->tiendas()->sync($tienda_id);
+
+        Mail::to($empleado->correo)->send(new NotificaTiendas($empleado));
+
 
         return redirect()->route('empleado.show', $empleado_id);
     }
