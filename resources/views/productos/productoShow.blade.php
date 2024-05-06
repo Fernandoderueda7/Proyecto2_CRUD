@@ -21,7 +21,7 @@
                 Imagen:
                 <a href="{{ route('producto.download', $archivo) }}">
                     <!-- {{ $archivo->nombre_original }} -->
-                    <img src="{{ \Storage::url($archivo->ubicacion) }}" width="150px" height="150px">
+                    <img src="{{ \Storage::url($archivo->ubicacion) }}" width="275px" height="250px">
 
                 </a>
             </li>
