@@ -4,7 +4,7 @@
 
     @include('parciales.form-error')
 
-    <form action="{{ route('producto.store') }}" method ="POST" >
+    <form action="{{ route('producto.store') }}" method ="POST" enctype="multipart/form-data" >
         @csrf
         <div class="form-group">
           <hr>
@@ -85,7 +85,9 @@
           </select>
           <br>
           <br>
-
+          <hr>
+          <input type="file" name="archivo" multiple>
+          <br>
       
           <button type="submit" class="btn btn-success">Registrar</button>
         </div>

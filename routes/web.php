@@ -23,6 +23,8 @@ Route::get('/', function () {
 });
 
 Route::resource('producto', ProductoController::class);
+Route::get('/producto/download/{archivo}', [ProductoController::class, 'download'])
+    ->name('producto.download');
 
 Route::resource('empleado', EmpleadoController::class);
 Route::get('/empleado/{empleado}/asignar-tienda', [EmpleadoController::class, 'asignarTienda'])->name('empleado.asignar-tienda');

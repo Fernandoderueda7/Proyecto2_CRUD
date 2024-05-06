@@ -14,4 +14,18 @@
         <li>Tienda: {{ $producto -> tienda }}</li>
     </ul>
 
+    <h2>Fotos de producto</h2>
+    <ul>
+        @foreach ($producto->archivos as $archivo)
+            <li>
+                Imagen:
+                <a href="{{ route('producto.download', $archivo) }}">
+                    <!-- {{ $archivo->nombre_original }} -->
+                    <img src="{{ \Storage::url($archivo->ubicacion) }}" width="150px" height="150px">
+
+                </a>
+            </li>
+        @endforeach
+    </ul>
+
 </x-mi-layout>

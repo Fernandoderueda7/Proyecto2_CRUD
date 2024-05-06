@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Archivo;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
@@ -19,6 +21,7 @@ class ProductoController extends Controller
     {
         //
         $productos = Producto::all();
+        // $productos = Producto::with('user:id, name, email')->get();
         // $productos = Auth::user()->productos;
 
 
@@ -67,7 +70,16 @@ class ProductoController extends Controller
         // $producto -> tienda = $request -> tienda;
         // $producto -> save();
         $request->merge(['user_id' => Auth::id()]);
-        Producto::create($request->all());
+        // Producto::create($request->all());
+        $producto = Producto::create($request->all());
+
+        if ($request->file('archivo')->isValid()) {
+            $producto->archivos()->create([
+                'ubicacion' => $request->archivo->store('archivos_productos', 'public'),
+                'nombre_original' => $request->archivo->getClientOriginalName(),
+                'mime' => $request->file('archivo')->getClientMimeType(),
+            ]);
+        }
     
         //Redireccionar
         return redirect()->route('producto.index');
@@ -141,5 +153,11 @@ class ProductoController extends Controller
         
         $producto -> delete();
         return redirect() -> route('producto.index');
+    }
+
+    public function download(Archivo $archivo)
+    {
+        return response()
+        ->download(storage_path('app/public/' . $archivo->ubicacion), $archivo->nombre_original);
     }
 }
