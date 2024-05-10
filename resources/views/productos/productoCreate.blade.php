@@ -70,7 +70,7 @@
 
           <label for="estado"><b>Estado</b></label>
           <select name="estado" class="form-control">
-            <option value="excelente" @selected(old('estado') == 'excelente') >Ecxelente</option>
+            <option value="excelente" @selected(old('estado') == 'excelente') >Excelente</option>
             <option value="bueno" @selected(old('estado') == 'bueno')>Buen Estado</option>
             <option value="regular" @selected(old('estado') == 'regular')>Regular</option>  
           </select>
@@ -86,7 +86,7 @@
           <br>
           <br>
           <hr>
-          <input type="file" name="archivo" multiple>
+          <input type="file" name="archivo">
           <br>
           <br>
           <br>

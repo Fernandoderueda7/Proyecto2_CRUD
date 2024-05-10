@@ -50,6 +50,8 @@ class ProductoController extends Controller
             'estado' => 'required',
             'tienda' => 'required',
             'archivo' => 'required',
+//+++++++++Comentar Para Realizar test+++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         ]);
     
         //Guardar
