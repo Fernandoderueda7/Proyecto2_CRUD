@@ -21,10 +21,6 @@ class ProductoController extends Controller
     {
         //
         $productos = Producto::all();
-        // $productos = Producto::with('user:id, name, email')->get();
-        // $productos = Auth::user()->productos;
-
-
         return view('productos/productoIndex', compact('productos'));
     }
 
@@ -53,26 +49,15 @@ class ProductoController extends Controller
             'deporte' => 'required',
             'estado' => 'required',
             'tienda' => 'required',
-
-
+            'archivo' => 'required',
         ]);
     
         //Guardar
-        // $producto = new Producto();
-        // $producto -> user_id = Auth::id();
-        // $producto -> nombre_producto = $request -> nombre_producto;
-        // $producto -> marca = $request -> marca;
-        // $producto -> descripcion = $request -> descripcion;
-        // $producto -> precio = $request -> precio;
-        // $producto -> categoria = $request -> categoria;
-        // $producto -> deporte = $request -> deporte;
-        // $producto -> estado = $request -> estado;
-        // $producto -> tienda = $request -> tienda;
-        // $producto -> save();
         $request->merge(['user_id' => Auth::id()]);
         // Producto::create($request->all());
         $producto = Producto::create($request->all());
 
+//++++++++++++++Comentar para Realizar el test***********************************************************************
         if ($request->file('archivo')->isValid()) {
             $producto->archivos()->create([
                 'ubicacion' => $request->archivo->store('archivos_productos', 'public'),
@@ -80,7 +65,8 @@ class ProductoController extends Controller
                 'mime' => $request->file('archivo')->getClientMimeType(),
             ]);
         }
-    
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
         //Redireccionar
         return redirect()->route('producto.index');
     }
@@ -126,15 +112,6 @@ class ProductoController extends Controller
 
         ]);
     
-        // $producto -> nombre_producto = $request -> nombre_producto;
-        // $producto -> marca = $request -> marca;
-        // $producto -> descripcion = $request -> descripcion;
-        // $producto -> precio = $request -> precio;
-        // $producto -> categoria = $request -> categoria;
-        // $producto -> deporte = $request -> deporte;
-        // $producto -> estado = $request -> estado;
-        // $producto -> tienda = $request -> tienda;
-        // $producto -> save();
 
         $producto->update($request->all());
     

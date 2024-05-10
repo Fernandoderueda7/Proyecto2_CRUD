@@ -23,6 +23,6 @@ class EmpleadoSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        Empleado::factory(40)->create();
+        Empleado::factory(14)->create();
     }
 }

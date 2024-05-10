@@ -88,7 +88,8 @@
           <hr>
           <input type="file" name="archivo" multiple>
           <br>
-      
+          <br>
+          <br>
           <button type="submit" class="btn btn-success">Registrar</button>
         </div>
     </form>
