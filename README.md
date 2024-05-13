@@ -64,3 +64,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Pasos para instalar este proyecto en local usando Laragon
+
+- git clone <url>
+- cd <directorio del proyecto>
+- composer install
+- cp .env.example .env
+- php artisan key:generate
+- php artisan migrate:fresh --seed
+- php artisan serve
+- php artisan route:list
+
+## Para instalar el jetstream en nuestro proyecto
+- composer require laravel/jetstream
+- php artisan jetstream:install livewire
+- php artisan jetstream:install livewire --teams
+- npm install
