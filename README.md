@@ -67,8 +67,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Pasos para instalar este proyecto en local usando Laragon
 
-- git clone <url>
-- cd <directorio del proyecto>
+- git clone "url"
+- cd "directorio del proyecto"
 - composer install
 - cp .env.example .env
 - php artisan key:generate
